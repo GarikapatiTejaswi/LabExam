@@ -18,7 +18,6 @@ public class ClientDemo {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        // Insert records
         Project p1 = new Project("Project Alpha", 6, 100000, "Alice");
         Project p2 = new Project("Project Beta", 8, 150000, "Bob");
         Project p3 = new Project("Project Gamma", 12, 200000, "Charlie");
@@ -27,7 +26,7 @@ public class ClientDemo {
         session.save(p2);
         session.save(p3);
 
-        // Aggregate Functions on Budget
+        
         Criteria criteria = session.createCriteria(Project.class);
 
         criteria.setProjection(Projections.rowCount());
